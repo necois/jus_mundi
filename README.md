@@ -7,11 +7,11 @@ This project involves training and generating text using custom n-gram models. I
 - Upgrade pip: `pip install --upgrade pip`
 - Install the required dependencies: `pip install -r requirements.txt`
 
-## Run local test to ensure compliance with exercise instructions
+### Run local test to ensure compliance with exercise instructions
 `python -m unittest tests/test_ngram_models.py`
 
-# Train NGramModel
+### Train NGramModel
 `python -m TextGeneration.train data/config_jsons/training.json`
 
-# Generate some predictions
+### Generate some predictions
 `python -m TextGeneration.generate data/config_jsons/input.json`
