@@ -1,7 +1,11 @@
 {
-  "trained_model": "",
-  "max_n_gram": 2,
-  "texts": [""],
-  "output_file": "",
+  "trained_model": "dump/ngram_model.pkl",
+  "max_n_gram": 3,
+  "texts" : [
+    "In the quiet of the morning, the birds began to sing but it",
+    "She wandered through the garden, lost in thought. Of course",
+    "It was a dark and stormy night, the wind howling outside, I was listening"
+    ],
+  "output_file": "dump/generated_outputs.json",
   "use_top_candidate": 1
 }

@@ -6,6 +6,8 @@ from TextGeneration.utils.files import json_to_schema, schema_to_json
 from TextGeneration.utils.preprocessor import Preprocessor
 from TextGeneration.utils.schemas import InputSchema, OutputSchema
 
+from utils import load_ngram_model
+
 
 def main_generate(file_str_path: str) -> None:
     """
@@ -19,11 +21,16 @@ def main_generate(file_str_path: str) -> None:
     """
     # Reading input data
     input_schema = json_to_schema(file_str_path=file_str_path, input_schema=InputSchema)
+
+    # Predicting texts
+    generated_texts = []
+    ngram_model = load_ngram_model(input_schema.trained_model)
     for input_text in input_schema.texts:
-        _ = Preprocessor.clean(text=input_text)
+        text = Preprocessor.clean(text=input_text)
+        generated_texts.append(ngram_model.predict(text))
 
     # Printing generated texts
-    output_schema = OutputSchema(generated_texts=[])
+    output_schema = OutputSchema(generated_texts=generated_texts)
     schema_to_json(file_path=input_schema.output_file, schema=output_schema)
 
 

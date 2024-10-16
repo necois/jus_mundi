@@ -35,7 +35,7 @@ def main_train(file_str_path: str) -> None:
     # Training NGramModel
     ngram_model = NGramModel(training_texts, training_schema.max_n_gram)
     ngram_model.fit()
-    assert isinstance(ngram_model.predict("This is the story of", 20), str)
+    assert isinstance(ngram_model.predict("Yesterday, in the", 20), str)
     save_ngram_model(ngram_model, Path.cwd() / training_schema.trained_model)
 
 
